@@ -1,106 +1,137 @@
- body {
-        font-family: "Roboto", sans-serif;
-      background-color: #DB4A00; 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .login-container {
-      width: 300px;
-      text-align: center;
-      color: #000;
-    }
-
-    .logo {
-  width: 400px;     
-  max-width: 100%;  
-  height: auto;     
-  display: block;
-  margin: 0 auto 20px; 
+/* ===== Variáveis ===== */
+:root {
+  --swift-orange: #DB4A00;
+  --text-dark: #111;
+  --text-muted: #6b6b6b;
+  --bg-light: #f5f5f5;
 }
 
-    h1 {
-  text-align: left;    
+/* ===== Reset ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: var(--swift-orange);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ===== Splash ===== */
+#splash {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--swift-orange);
+  z-index: 9999;
+  animation: fadeIn .4s ease both;
+}
+
+.splash-logo {
+  width: 260px;
+  max-width: 80%;
+  margin-bottom: 24px;
+  animation: pulse 1.8s infinite ease-in-out;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255,255,255,.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+#splash.leave {
+  animation: fadeOut .6s ease forwards;
+}
+
+/* ===== Login ===== */
+.login-container {
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  color: var(--text-dark);
+}
+
+.logo {
+  width: 320px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 20px;
+}
+
+h1 {
+  text-align: left;
   font-size: 20px;
   margin-bottom: 10px;
-  color: #111;
-  margin-left: 10px;    
+  color: var(--text-dark);
+  margin-left: 10px;
 }
 
+input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  background: var(--bg-light);
+  font-size: 14px;
+  outline: none;
+}
 
-    input {
-      display: block;
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 10px;
-      background-color: #f5f5f5;
-      font-size: 14px;
-      outline: none;
-    }
-    
 button {
   width: 100%;
   padding: 12px;
   margin-top: 15px;
   border: none;
   border-radius: 10px;
-  background-color: #fff;
-  color: #DB4A00;
+  background: #fff;
+  color: var(--swift-orange);
   font-size: 16px;
   font-weight: bold;
-
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
-
-  transition: all 0.3s ease; 
+  transition: all 0.3s ease;
 }
 
 button:hover {
-  background-color: #DB4A00; 
-  color: #000000;             
-  transform: scale(1.03);   
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+  background: #f1f1f1;         /* mantém claro */
+  color: var(--swift-orange);  /* texto laranja */
+  transform: translateY(-2px); /* efeito “levantar” */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-
-    
-    .link {
-      display: block;
-      margin-top: 10px;
-      font-size: 12px;
-      color: rgb(69, 23, 197);
-      text-decoration: none;
-    }
-
-    .link:hover {
-      text-decoration: underline;
-    }
-
-    .login-container button:hover {
-    background-color: #f1f1f1;  
-  transform: translateY(-2px); 
+.link {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #4517C5;
+  text-decoration: none;
 }
 
-:root{
-  --brand-orange:#DB4A00;
-  --brand-green:#0F766E;
-  --text:#222;
-  --muted:#6b6b6b;
-  --bg:#fafafa;
-  --divider:#e8e8e8;
-  --card:#ffffff;
+.link:hover {
+  text-decoration: underline;
 }
 
-html, body { height: 100%; }
-body{
-  background: #DB4A00; color:var(--text);
-  font-family: "Roboto", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+/* Estados de exibição */
+.hidden { display: none; }
+.show { animation: fadeIn .6s ease both; }
+
+/* ===== Animações ===== */
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: .9; }
 }
+@keyframes fadeIn { from { opacity:0; transform: translateY(6px); } to { opacity:1; transform:none; } }
+@keyframes fadeOut { from { opacity:1; } to { opacity:0; transform: translateY(-6px); } }
