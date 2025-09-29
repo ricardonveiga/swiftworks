@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Swift Works</title>
+  <style>
+    :root{ --swift-orange:#DB4A00; }
+
+    /* ===== SPLASH ===== */
+    #splash {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--swift-orange);
+      z-index: 9999;
+      animation: fadeIn .4s ease both;
+    }
+
+    #splash img {
+      width: 260px;
+      max-width: 80%;
+      height: auto;
+      margin-bottom: 24px;
+      animation: pulse 1.8s infinite ease-in-out;
+    }
+
+    /* Loader circular */
+    .loader {
+      width: 48px;
+      height: 48px;
+      border: 4px solid rgba(255,255,255,.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 2s linear infinite;
+    }
+
+    /* Estados de transição */
+    #splash.leave { animation: fadeOut .6s ease forwards; }
+    #login.hidden { display: none; }
+    #login.show { animation: fadeIn .6s ease both; }
+
+    /* ===== Animações ===== */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse {
+      0%,100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: .9; }
+    }
+    @keyframes fadeIn { from { opacity:0; transform: translateY(6px) } to { opacity:1; transform:none } }
+    @keyframes fadeOut { from { opacity:1 } to { opacity:0; transform: translateY(-6px) } }
+  </style>
+</head>
+<body>
+  <!-- Tela de splash -->
+  <div id="splash">
+    <img src="images/logolaranja.png" alt="Swift Works">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Tela de login -->
+  <div id="login" class="login-container text-center hidden">
+    <img src="images/logolaranja.png" alt="Logo Swift Works" class="logo">
+
+    <h1>Login</h1>
+
+    <form>
+      <input type="text" placeholder="CPF" required>
+      <input type="password" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
+      <a href="#" class="link d-block mt-2">Esqueci minha senha</a>
+    </form>
+  </div>
+
+  <script>
+    const splash = document.getElementById('splash');
+    const login  = document.getElementById('login');
+
+    setTimeout(() => {
+      splash.classList.add('leave');
+      splash.addEventListener('animationend', () => {
+        splash.remove();
+        login.classList.remove('hidden');
+        login.classList.add('show');
+      }, { once: true });
+    }, 2000);
+  </script>
+</body>
+</html>
