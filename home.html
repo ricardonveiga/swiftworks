@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Mesmo padrão de imports -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;800;900&display=swap" rel="stylesheet"/>
+
+  <!-- Seu CSS -->
+  <link rel="stylesheet" href="css/home.css"/>
+
+  <title>Swift Works — Dashboard</title>
+</head>
+<body>
+  <div class="app">
+
+    <!-- Header -->
+    <header>
+      <div class="container-narrow d-flex align-items-center justify-content-between">
+        <div class="brand">
+          <img src="images/logolaranja.png" alt="Swift" />
+          <span class="name">Swift</span>
+        </div>
+        <button class="bell" title="Notificações">🔔</button>
+      </div>
+    </header>
+
+    <!-- Conteúdo -->
+    <main class="container-narrow">
+      <h1 class="greet">Olá, Silvestre!</h1>
+
+      <!-- Métricas -->
+      <section class="metrics">
+        <div class="metric">
+          <div class="label">Pontuação Atual</div>
+          <div class="value"><strong id="pointsNow">2.400</strong> Pontos</div>
+        </div>
+        <div class="metric goal">
+          <div class="label">Objetivo</div>
+          <div class="value"><strong id="pointsGoal">3.500</strong> Pontos</div>
+        </div>
+      </section>
+
+      <!-- Progresso -->
+      <section class="card-box">
+        <h2 class="card-title">Progresso</h2>
+
+        <!-- controle por data-pct (0 a 100) -->
+        <div class="progress-ring" data-pct="68">
+          <div class="ring"></div>
+          <div class="ring-center">
+            <div class="avatar">👤</div>
+            <div class="percent">68%</div>
+          </div>
+        </div>
+
+        <div class="legend">
+          <span><i class="dot gray"></i> Objetivo para próxima patente</span>
+          <span><i class="dot orange"></i> Realizado</span>
+        </div>
+      </section>
+
+      <!-- Desafio em andamento -->
+      <h2 class="section-title">🎯 Desafio em andamento:</h2>
+      <ol class="list">
+        <li>Aumentar 20% o Ticket Médio</li>
+        <li>Vender 20 produtos estratégicos</li>
+      </ol>
+
+      <!-- Produtos do mês -->
+      <h2 class="section-title">✨ Produtos estratégicos do mês:</h2>
+      <ul class="list">
+        <li>Filé de Tilápia</li>
+      </ul>
+
+      <div class="spacer"></div>
+    </main>
+
+    <!-- Dock -->
+    <nav class="dock">
+      <a href="#" class="active"><span class="icon">🏠</span><span>Home</span></a>
+      <a href="#"><span class="icon">🎮</span><span>Gamificação</span></a>
+      <a href="#"><span class="icon">🏆</span><span>Ranking</span></a>
+      <a href="#"><span class="icon">🎁</span><span>Prêmios</span></a>
+      <a href="#"><span class="icon">👤</span><span>Perfil</span></a>
+    </nav>
+
+  </div>
+
+  <!-- Seu JS -->
+  <script src="js/home.js"></script>
+</body>
+</html>
