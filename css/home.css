@@ -16,26 +16,38 @@ body {
   padding: 20px;
 }
 
-/* Header */
+/* Header com logo centralizado */
 .header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 0;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 0;
+  line-height: 0;
 }
 
 .logo img {
+  max-height: 200px;   /* mantém o logo grande */
   display: block;
-  max-height: 50px;
+  margin-bottom: 0;    /* sem espaço nenhum abaixo */
 }
 
-.notification-icon {
+/* Greeting + sino alinhados */
+.greeting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  border-bottom: 2px solid #e5e7eb;
+  padding: 0 0 8px 0;  /* só respiro embaixo para separar do resto */
+}
+
+.greeting-row .greeting {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.greeting-row .notification-icon {
   width: 40px;
   height: 40px;
   border-radius: 8px;
@@ -44,15 +56,6 @@ body {
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-/* Greeting */
-.greeting {
-  font-size: 24px;
-  font-weight: 600;
-  margin: 30px 0 20px 0;
-  border-bottom: 2px solid #e5e7eb;
-  padding-bottom: 20px;
 }
 
 /* Points Section */
@@ -202,14 +205,28 @@ body {
 
 .challenge-list li { margin-bottom: 8px; }
 
+/* Badge na lista */
+.challenge-list li.with-badge {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.challenge-list li.with-badge img {
+  max-height: 500px;
+  width: auto;
+  margin-left: 10px;
+}
+
 /* Carrossel dentro do card */
 #produtosCarousel { width: 100%; }
 #produtosCarousel .carousel-item img {
   width: 100%;
-  height: 160px;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   border-radius: 8px;
   background: #fff;
+  margin: 0 auto;
 }
 #produtosCarousel .carousel-caption {
   background: rgba(0,0,0,.45);
@@ -220,6 +237,7 @@ body {
 
 @media (max-width: 575.98px){
   .challenges-section { flex-direction: column; }
+  .logo img { max-height: 160px; }
   #produtosCarousel .carousel-item img { height: 160px; }
 }
 
