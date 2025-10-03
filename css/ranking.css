@@ -1,0 +1,282 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #fafafa;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    background: white;
+    min-height: 100vh;
+}
+
+.header {
+    background: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e0e0e0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.back-button {
+    color: #ff6b35;
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 5px;
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-image {
+    height: 90px;
+    width: auto;
+    object-fit: contain;
+}
+
+.title {
+    color: #ff6b35;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.filter-button {
+    color: #ff6b35;
+    font-size: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 5px;
+}
+
+.content {
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.section {
+    width: 100%;
+}
+
+.section-title {
+    color: #ff6b35;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.rank-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.rank-item {
+    background: #ffe8dc;
+    padding: 12px 16px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+/* Destaque para a posição do usuário (Prata) */
+.rank-item:nth-child(7) {
+    background: linear-gradient(135deg, #fbde3dfb 0%, #f9f3bb 50%, #fbe57a 100%);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+    transform: scale(1.02);
+    border: 2px solid #ffb300;
+}
+
+.rank-item:nth-child(7) .rank-name {
+    color: #b8860b;
+    font-weight: 600;
+}
+
+.rank-item:nth-child(7) .rank-person {
+    background: rgba(255, 255, 255, 0);
+    color: #b8860b;
+    font-weight: 600;
+}
+
+.rank-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ff6b35;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.rank-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.rank-person {
+    color: #333;
+    font-size: 14px;
+}
+
+.league-item {
+    background: #ffe8dc;
+    padding: 12px 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.medal {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.league-name {
+    color: #ff6b35;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 20px;
+    /* distancia do fundo */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    /* largura do menu */
+    max-width: 500px;
+    padding: 12px 0;
+    background: #fff;
+    border-radius: 40px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.nav-item {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* cor padrão dos ícones (cinza claro) */
+.nav-item img {
+    filter: brightness(0) saturate(100%) invert(56%) sepia(2%) saturate(250%) hue-rotate(340deg) brightness(96%) contrast(90%);
+    transition: filter 0.3s;
+}
+
+/* hover - deixa laranja */
+.nav-item:hover img {
+    filter: brightness(0) saturate(100%) invert(42%) sepia(85%) saturate(1800%) hue-rotate(354deg) brightness(95%) contrast(90%);
+}
+
+/* item ativo */
+.nav-item.active img {
+    filter: brightness(0) saturate(100%) invert(42%) sepia(85%) saturate(1800%) hue-rotate(354deg) brightness(95%) contrast(90%);
+}
+
+/* barra laranja embaixo do ativo */
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 3px;
+    background: #E85D2B;
+    border-radius: 2px;
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+    .sections {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .content {
+        padding: 20px 15px;
+        padding-bottom: 100px;
+    }
+
+    .header {
+        padding: 15px;
+    }
+
+    .logo-image {
+        height: 40px;
+    }
+
+    .bottom-nav {
+        padding: 10px 20px;
+        gap: 25px;
+        bottom: 10px;
+    }
+
+    .nav-icon {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-image {
+        height: 35px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .bottom-nav {
+        gap: 20px;
+        padding: 8px 15px;
+    }
+
+    .nav-icon {
+        font-size: 18px;
+    }
+}
