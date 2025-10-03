@@ -6,7 +6,7 @@
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
 
   <!-- Fonte -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -27,14 +27,16 @@
   <div id="login" class="login-container text-center hidden">
     <img src="images/logolaranja.png" alt="Logo Swift Works" class="logo">
     <h1>Login</h1>
-    <form>
-      <input type="text" placeholder="CPF" required>
-      <input type="password" placeholder="Senha" required>
+    <form id="loginForm">
+      <input type="text" id="cpf" placeholder="CPF" required>
+      <input type="password" id="senha" placeholder="Senha" required>
       <button type="submit">Entrar</button>
       <a href="#" class="link d-block mt-2">Esqueci minha senha</a>
     </form>
+    <p id="mensagem" class="mt-2"></p>
   </div>
 
+  <!-- Inline JS do splash (fechado corretamente) -->
   <script>
     const splash = document.getElementById('splash');
     const login  = document.getElementById('login');
@@ -49,5 +51,8 @@
       }, { once: true });
     }, 2000);
   </script>
+
+  <!-- Carrega o JS da página de login -->
+  <script src="js/login.js"></script>
 </body>
 </html>
